@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Categoria</h1>
+
+	<form method="post" th:action="@{/exito_categoria}" th:object="${categoria}">
+
+
+
+		<div class="form-group">
+			<label class="small mb-1" for="titulo">Nombre Categoria </label><input
+				class="form-control py-4" th:field="*{s_categoria}" 
+				type="text" placeholder="Ingrese Nombre" style="width: 400px"
+				name="titulo" /> <span th:errors="*{s_categoria}" style="color: #FF0000"></span>
+		</div>
+
+
+		<input class="btn btn-secondary" type="submit" value="Guardar"> <br> <br>
+	</form>
+</body>
+</html>

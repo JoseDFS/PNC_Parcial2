@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Libro</h1>
+
+	<form method="post" th:action="@{/exito_libro}" th:object="${libro}">
+
+
+
+		<select th:field="*{categoria.C_categoria}">
+
+			<option th:each="i : ${categorias}" th:value="${i.C_categoria}"
+				th:text="${i.S_categoria}"></option>
+
+		</select>
+
+		<div class="form-group">
+			<label class="small mb-1" for="titulo">Titulo </label><input
+				class="form-control py-4" th:field="*{s_titulo}" 
+				type="text" placeholder="Ingrese Titulo" style="width: 400px"
+				name="titulo" /> <span th:errors="*{s_titulo}" style="color: #FF0000"></span>
+		</div>
+		<div class="form-group">
+			<label class="small mb-1" for="apellido">Autor </label><input
+				class="form-control py-4" th:field="*{s_autor}" id="apellido"
+				type="text" placeholder="Ingrese Autor" style="width: 400px"
+				name="apellido" /> <span th:errors="*{s_autor}"
+				style="color: #FF0000"></span>
+		</div>
+		<div class="form-group">
+			<label class="small mb-1" for="Carne">ISBN </label><input
+				class="form-control py-4" th:field="*{s_isbn}" id="carne" type="text"
+				placeholder="Ingrese ISBN" style="width: 400px" name="carne" /> <span
+				th:errors="*{s_isbn}" style="color: #FF0000"></span>
+		</div>
+		<div class="form-check">
+				
+				<label>Activo: </label><input type="radio"  th:field="*{b_estado}" th:value = "${true}">
+				<label>Inactivo: </label><input type="radio"  th:field="*{b_estado}" th:value = "${false}">
+			</div>
+
+
+		<input class="btn btn-secondary" type="submit" value="Guardar"> <br> <br>
+	</form>
+</body>
+</html>
