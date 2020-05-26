@@ -58,7 +58,7 @@ public class MainController {
 	}
 	
 	@RequestMapping("/exito_libro")
-	public ModelAndView exito(@Valid @ModelAttribute Libro libro, BindingResult result) {
+	public ModelAndView exito_libro(@Valid @ModelAttribute Libro libro, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 		if(result.hasErrors()) {
 			List<Categoria> categorias = null;
@@ -76,7 +76,7 @@ public class MainController {
 	}
 	
 	@RequestMapping("/exito_categoria")
-	public ModelAndView exito(@Valid @ModelAttribute Categoria categoria, BindingResult result) {
+	public ModelAndView exito_cat(@Valid @ModelAttribute Categoria categoria, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 		if(result.hasErrors()) {
 			mav.addObject("exito", "");
